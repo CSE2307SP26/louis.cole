@@ -9,14 +9,17 @@ public class Cipher {
         String[] testDecrypt = {"yjwrnsfq", "ijgzllnsl",  "htsywtq"};
 
         try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"));
+
             for (String s: testEncrypt) {
-                System.out.println(encrypt(s, 5));
+                writer.write(encrypt(s, 5));
             }
             for (String s: testDecrypt) {
-                System.out.println(decrypt(s, 5));
+                writer.write(decrypt(s, 5));
             }
 
-        } catch (Exception e){
+            writer.close();
+        } catch (IOException e){
             e.printStackTrace();
         }
     }
